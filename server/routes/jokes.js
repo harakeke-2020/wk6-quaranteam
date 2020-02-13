@@ -20,9 +20,9 @@ router.get('/:random', (req, res) => {
 })
 
 // GRAB JOKES BY TYPE (GENERAL/PROGRAMMING)
-router.get('jokes/:type', (req, res) => {
+router.get('jokes/:type/:number', (req, res) => {
   request
-    .get(`https://official-joke-api.appspot.com/jokes/${req.params.type}/ten`)
+    .get(`https://official-joke-api.appspot.com/jokes/${req.params.type}/${req.params.number}`)
     .end((err, result) => {
       if (err) {
         res.status(500).send(err.message)
