@@ -1,4 +1,4 @@
-const config = require('./knexfile').development
+const config = require('../../knexfile').development
 const connection = require('knex')(config)
 
 const getFav = (db = connection) => {
@@ -15,11 +15,10 @@ const deleteFromFav = (joke, db = connection) => {
   return db('fav')
     .where('id', joke.id)
     .del()
-} 
+}
 
 module.exports = {
   getFav,
   addToFav,
   deleteFromFav
 }
-
