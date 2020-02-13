@@ -1,14 +1,14 @@
 import {
   SHOW_ERROR,
-  REQUEST_POSTS,
-  RECEIVE_POSTS } from '../actions'
+  REQUEST_JOKES,
+  RECEIVE_JOKES } from '../actions'
 
 const waiting = (state = false, action) => {
   switch (action.type) {
-    case REQUEST_POSTS:
+    case REQUEST_JOKES:
       return true
 
-    case RECEIVE_POSTS:
+    case RECEIVE_JOKES:
       return false
 
     case SHOW_ERROR:

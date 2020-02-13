@@ -1,17 +1,18 @@
 import React from 'react'
 
 import ErrorMessage from './ErrorMessage'
-import LoadSubreddit from './LoadSubreddit'
-import SubredditList from './SubredditList'
+import LoadJokes from './LoadJokes'
+import JokesList from './JokesList'
 import WaitIndicator from './WaitIndicator'
 
 const App = () => (
   <div className='app'>
+    {/* <FavoritesList /> */}
     <ErrorMessage />
-    <Load>
+    <LoadJokes>
       <WaitIndicator />
-    </LoadSubreddit>
-    <SubredditList />
+    </LoadJokes>
+    <JokesList />
   </div>
 )
 

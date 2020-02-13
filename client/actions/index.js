@@ -1,19 +1,20 @@
 import request from 'superagent'
 
 export const SHOW_ERROR = 'SHOW_ERROR'
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-export const REQUEST_POSTS = 'REQUEST_POSTS'
+export const RECEIVE_JOKES = 'RECEIVE_JOKES'
+export const REQUEST_JOKES = 'REQUEST_JOKES'
 
-export const requestPosts = () => {
+export const requestJokes = () => {
   return {
-    type: REQUEST_POSTS
+    type: REQUEST_JOKES
   }
 }
 
-export const receivePosts = (posts) => {
+export const receiveJokes = (jokes) => {
   return {
-    type: RECEIVE_POSTS,
-    posts: posts.map(post => post.data)
+    type: RECEIVE_JOKES,
+    // jokes: jokes.map(joke => joke)
+    jokes
   }
 }
 
@@ -24,18 +25,18 @@ export const showError = (errorMessage) => {
   }
 }
 
-export function fetchPosts (subreddit) {
+export function fetchJokes () {
   // Action creator that returns a function instead of an action.
   return (dispatch) => {
-    // Perform requestPosts method. Returns {type: REQUEST_POSTS}
-    dispatch(requestPosts())
+    // Perform requestJOKES method. Returns {type: REQUEST_JOKES}
+    dispatch(requestJokes())
 
     // Make a request to the server using superagent
     return request
-      .get(`/api/v1/reddit/subreddit/${subreddit}`)
+      .get(`/api/v1/`)
       .then(res => {
-        console.log(res.body)
-        dispatch(receivePosts(res.body))
+        console.log(res)
+        dispatch(receiveJokes(res.body))
       })
       .catch(err => {
         dispatch(showError(err.message))
