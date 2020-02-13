@@ -36,7 +36,7 @@ export function fetchJokes () {
       .get(`/api/v1/`)
       .then(res => {
         console.log(res)
-        dispatch(receiveJokes(res.body.joke))
+        dispatch(receiveJokes(res.body))
       })
       .catch(err => {
         dispatch(showError(err.message))

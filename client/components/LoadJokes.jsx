@@ -14,7 +14,7 @@ const LoadJokes = (props) => {
         <input type="text" onChange={(e) => console.log(e.target.value)} />
         <button type="submit" >Fetch posts of a subreddit!</button>
       </form> */}
-      <button type="submit" onClick={handleSubmit}>Get jokes</button>
+      <button type="submit" onClick={handleSubmit}>Get 10 jokes</button>
       {props.children}
     </div>
   )

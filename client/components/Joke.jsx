@@ -5,7 +5,8 @@ const Joke = (props) => {
 
   return (<div>
     <h1>Joke: </h1>
-    <span>{props.joke}</span>
+    <span>{props.joke.setup}</span>
+    <span>{props.joke.punchline}</span>
   </div>
   )
 }
