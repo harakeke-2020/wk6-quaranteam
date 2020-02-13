@@ -1,24 +1,55 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { fetchJokes } from '../actions'
+import { requestJokes } from '../api'
 
-const LoadJokes = (props) => {
-  function handleSubmit (e) {
-    e.preventDefault()
-    // console.log(e.target.value)
-    props.dispatch(fetchJokes())
+class LoadJokes extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      type: '',
+      quantity: ''
+    }
   }
-  return (
-    <div>
-      {/* <form onSubmit={handleSubmit}>
-        <input type="text" onChange={(e) => console.log(e.target.value)} />
-        <button type="submit" >Fetch posts of a subreddit!</button>
-      </form> */}
-      <button type="submit" onClick={handleSubmit}>Get 10 jokes</button>
-      {props.children}
-    </div>
-  )
+
+  handleClick = (e) => {
+    e.preventDefault()
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  handleSubmit = (e) => {
+    console.log(this.state)
+    e.preventDefault()
+    requestJokes(this.state)
+  }
+
+  render () {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="type">What type of joke would you like?</label>
+          <select id="type" name="type">
+            <option value="" disabled selected hidden>Select one</option>
+            <option onClick={this.handleClick} value="general">General</option>
+            <option onClick={this.handleClick} value="programming">Ten</option>
+            <option onClick={this.handleClick} value="knock-knock">Knock-knock</option>
+          </select>
+          {/* <button type="submit">Confirm!</button>
+        </form>
+        <form onSubmit={this.handleSubmit}> */}
+          <label htmlFor="quantity">How many jokes ya want?</label>
+          <select id="quantity" name="quantity">
+            <option onClick={this.handleClick} value="" disabled selected hidden>Select one</option>
+            <option onClick={this.handleClick} value="one">One</option>
+            <option onClick={this.handleClick} value="ten">Ten</option>
+          </select>
+          {/* <input type="text" onChange={(e) => console.log(e.target.value)} /> */}
+          <button type="submit" >Confirm!</button>
+        </form>
+      </div>
+    )
+  }
 }
 
 // Connect to store
-export default connect()(LoadJokes)
+export default LoadJokes

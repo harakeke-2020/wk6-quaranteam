@@ -7,15 +7,16 @@ router.use(express.json())
 
 // GET ONE RANDOM JOKE
 //params would be '/random_joke' or '/random_ten'
-router.get('/:random', (req, res) => {
-  request
-    .get(`https://official-joke-api.appspot.com/${req.params.random}`)
-    .then(res => {
-      res.json(res.body)
-    })
-    .catch(err => {
-      res.status(500).send(err.message)
-    })
+router.get('/', (req, res) => {
+  console.log('res received ', res)
+  // request
+  //   .get(`https://official-joke-api.appspot.com/${req.params.random}`)
+  //   .then(res => {
+  //     res.json(res.body)
+  //   })
+  //   .catch(err => {
+  //     res.status(500).send(err.message)
+  //   })
 })
 
 // GET 10 RANDOM JOKES
