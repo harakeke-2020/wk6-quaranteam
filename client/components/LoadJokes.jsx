@@ -32,7 +32,7 @@ class LoadJokes extends React.Component {
           <select defaultValue={this.state.type} id="type" name="type" onChange={this.handleClick} >
             <option value="" disabled selected hidden>Select one</option>
             <option value="general">General</option>
-            <option value="programming">Ten</option>
+            <option value="programming">Programming</option>
             <option value="knock-knock">Knock-knock</option>
           </select>
           <label htmlFor="quantity">How many jokes ya want?</label>
