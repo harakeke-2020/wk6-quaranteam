@@ -41,6 +41,7 @@
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
+    "cheerio": "^1.0.0-rc.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "jest": "^25.1.0",
