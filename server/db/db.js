@@ -7,8 +7,14 @@ const getFav = (db = connection) => {
 }
 
 const addToFav = (joke, db = connection) => {
+  const newJoke = {
+    'external_id': joke.id,
+    'type': joke.type,
+    'setup': joke.setup,
+    'punchline': joke.punchline
+  }
   return db('fav')
-    .insert(joke)
+    .insert(newJoke)
 }
 
 const deleteFromFav = (joke, db = connection) => {

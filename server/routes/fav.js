@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   db.addToFav(req.body)
     .then(() => {
-      db.getFav()
+      res.json()
     })
     .catch(err => {
       errHandler(res, err, 'could not add to favourites')
