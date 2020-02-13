@@ -5,7 +5,7 @@ const Joke = (props) => {
 
   return (<div>
     <h1>Joke: </h1>
-    <span>{props.joke.joke}</span>
+    <span>{props.joke}</span>
   </div>
   )
 }

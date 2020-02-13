@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Joke from './Joke'
 
 // component contains subreddits props which comes from global state
-const Subreddit = (props) => {
+const JokesList = (props) => {
   return (
     <div>
       {/* {jokes.map((joke, i) =>
@@ -26,4 +26,4 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps
-)(Subreddit)
+)(JokesList)
