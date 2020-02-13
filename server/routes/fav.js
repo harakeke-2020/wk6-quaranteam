@@ -9,8 +9,8 @@ router.use(express.json())
 
 router.get('/', (req, res) => {
   db.getFav()
-    .then(res => {
-      res.json(res)
+    .then(result => {
+      res.json(result)
     })
     .catch(err => {
       errHandler(res, err, 'could not get favourites')
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   db.addToFav(req.body)
     .then(() => {
-      res.json()
+      res.send('successfully added to favourites!')
     })
     .catch(err => {
       errHandler(res, err, 'could not add to favourites')
@@ -38,8 +38,8 @@ router.delete('/', (req, res) => {
 })
 
 const errHandler = (res, err, text) => {
-  console.log.error(err.message)
-  res.statu(500)
+  console.error(err.message)
+  res.status(500)
     .send(`DATABASE ERROR: ${text}`)
 }
 

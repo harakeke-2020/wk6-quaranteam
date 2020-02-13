@@ -3,18 +3,20 @@ const connection = require('knex')(config)
 
 const getFav = (db = connection) => {
   return db('fav')
-    .select
+    .select()
 }
 
-const addToFav = (joke, db = connection) => {
-  const newJoke = {
-    'external_id': joke.id,
-    'type': joke.type,
-    'setup': joke.setup,
-    'punchline': joke.punchline
-  }
+const addToFav = (jokes, db = connection) => {
+  const newJokesArray = jokes.map(joke => {
+    return {
+      'external_id': joke.id,
+      'type': joke.type,
+      'setup': joke.setup,
+      'punchline': joke.punchline
+    }
+  })
   return db('fav')
-    .insert(newJoke)
+    .insert(newJokesArray)
 }
 
 const deleteFromFav = (joke, db = connection) => {
