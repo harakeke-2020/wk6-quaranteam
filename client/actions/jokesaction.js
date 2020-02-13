@@ -12,10 +12,18 @@ export const requestJokes = () => {
 export const receiveJokes = (jokes) => {
   return {
     type: RECEIVE_JOKES,
-    jokes: jokes.map(joke => {
-      return {
-
-      }
-    })
-  }
+    jokes
 }
+
+export function fetchPosts (subreddit) {
+  return (dispatch) => {
+    dispatch(requestPosts())
+    return request
+      .get(`/api/v1/reddit/subreddit/${subreddit}`)
+      .then(res => {
+        dispatch(receivePosts(res.body))
+      })
+      .catch(err => {
+        dispatch(showError(err.message))
+      })
+  }

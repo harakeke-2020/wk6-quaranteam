@@ -1,8 +1,8 @@
-import { RECEIVE_POSTS } from '../actions/redditActions.js'
+import { RECEIVE_JOKES } from '../actions/jokesActions.js'
 
 function subreddits (state = [], action) {
   switch (action.type) {
-    case RECEIVE_POSTS:
+    case RECEIVE_JOKES:
       return action.posts
 
     default:
