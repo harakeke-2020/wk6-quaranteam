@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
       res.json(res)
     })
     .catch(err => {
-      res.status(500).send(err.message)
+      errHandler(res, err, 'could not get favourites')
     })
 })
 
@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
       db.getFav()
     })
     .catch(err => {
-      res.status(500).send(err.message)
+      errHandler(res, err, 'could not add to favourites')
     })
 })
 
@@ -33,8 +33,14 @@ router.delete('/', (req, res) => {
       db.getFav()
     })
     .catch(err => {
-      res.status(500).send(err.message)
+      errHandler(res, err, 'could not delete joke')
     })
 })
+
+const errHandler = (res, err, text) => {
+  console.log.error(err.message)
+  res.statu(500)
+    .send(`DATABASE ERROR: ${text}`)
+}
 
 module.exports = router
