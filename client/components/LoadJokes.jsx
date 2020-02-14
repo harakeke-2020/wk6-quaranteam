@@ -29,20 +29,20 @@ class LoadJokes extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="type">What type of joke would you like?</label>
-          <select defaultValue={this.state.type} id="type" name="type" onChange={this.handleClick} >
+          <label className="question-text" htmlFor="type">What type of joke would you like?</label>
+          <select className="form-control form-control-sm" defaultValue={this.state.type} id="type" name="type" onChange={this.handleClick} >
             <option value="" disabled selected hidden>Select one</option>
             <option value="general">General</option>
             <option value="programming">Programming</option>
             <option value="knock-knock">Knock-knock</option>
           </select>
-          <label htmlFor="quantity">How many jokes ya want?</label>
-          <select defaultValue={this.state.quantity} id="quantity" name="quantity" onChange={this.handleClick} >
+          <label className="question-text form" htmlFor="quantity">How many jokes ya want?</label>
+          <select className="form-control form-control-sm" defaultValue={this.state.quantity} id="quantity" name="quantity" onChange={this.handleClick} >
             <option value="" disabled selected hidden>Select one</option>
             <option value="one">One</option>
             <option value="ten">Ten</option>
           </select>
-          <button type="submit" >Confirm!</button>
+          <button className="btn btn-primary btn-block btn-outline-info" type="submit" data-toggle="button" aria-pressed="false" autocomplete="off">Confirm!</button>
         </form>
       </div>
     )
