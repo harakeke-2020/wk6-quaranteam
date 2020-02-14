@@ -1,5 +1,6 @@
 import React from 'react'
-import { requestJokes } from '../api'
+import { connect } from 'react-redux'
+import { apiCall } from '../actions/jokesaction'
 
 class LoadJokes extends React.Component {
   constructor (props) {
@@ -21,7 +22,7 @@ class LoadJokes extends React.Component {
   handleSubmit = (e) => {
     console.log(this.state)
     e.preventDefault()
-    requestJokes(this.state)
+    this.props.dispatch(apiCall(this.state))
   }
 
   render () {
@@ -49,4 +50,4 @@ class LoadJokes extends React.Component {
 }
 
 // Connect to store
-export default LoadJokes
+export default connect()(LoadJokes)

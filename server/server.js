@@ -8,6 +8,6 @@ const server = express()
 server.use(express.static(path.join(__dirname, '../public')))
 
 server.use('/api/v1', jokes)
-server.use('/api/v1/db', fav)
+server.use('/api/v2', fav)
 
 module.exports = server
