@@ -12,12 +12,12 @@ class JokesList extends React.Component {
         {
         }
         <h2>joke</h2>
-        {/* {props.jokes.map((joke, i) =>
+        {this.props.jokes.map((joke, i) =>
           <Joke
             key={i}
             joke={joke}
           />
-        )} */}
+        )}
       </div>
     )
   }
@@ -25,7 +25,7 @@ class JokesList extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    jokes: state.jokes
+    jokes: state
   }
 }
 
