@@ -6,17 +6,23 @@ const getFav = (db = connection) => {
     .select()
 }
 
-const addToFav = (jokes, db = connection) => {
-  const newJokesArray = jokes.map(joke => {
-    return {
-      'external_id': joke.id,
-      'type': joke.type,
-      'setup': joke.setup,
-      'punchline': joke.punchline
-    }
-  })
+const addToFav = (joke, db = connection) => {
+  const newJoke = {
+    'external_id': joke.id,
+    'type': joke.type,
+    'setup': joke.setup,
+    'punchline': joke.punchline
+  }
+  // const newJokesArray = jokes.map(joke => {
+  //   return {
+  //     'external_id': joke.id,
+  //     'type': joke.type,
+  //     'setup': joke.setup,
+  //     'punchline': joke.punchline
+  //   }
+  // })
   return db('fav')
-    .insert(newJokesArray)
+    .insert(newJoke)
 }
 
 const deleteFromFav = (joke, db = connection) => {

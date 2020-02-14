@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+  console.log(req.body)
   db.addToFav(req.body)
     .then(() => {
       res.send('successfully added to favourites!')
