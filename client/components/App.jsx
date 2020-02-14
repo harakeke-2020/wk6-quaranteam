@@ -4,7 +4,7 @@ import LoadJokes from './LoadJokes'
 import JokesList from './JokesList'
 // import WaitIndicator from './WaitIndicator'
 
-const App = () => (
+const App = (props) => (
   <div className='app'>
     {/* <FavoritesList /> */}
     <LoadJokes />
