@@ -43,3 +43,4 @@ export function fetchPosts (subreddit) {
         dispatch(showError(err.message))
       })
   }
+}
