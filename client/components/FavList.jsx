@@ -6,30 +6,41 @@ import Joke from './Joke'
 
 // component contains subreddits props which comes from global state
 class FavList extends React.Component {
-  componentDidMount()
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      favs: []
+    }
+  }
+
+  componentDidMount () {
+    return request
+      .get('api/v2/')
+      .then(result => {
+        console.log(result.body)
+        this.setState({
+          favs: result.body
+        })
+      })
+  }
 
   render () {
-    console.log(this.props)
     return (
       <div>
+        <h2>Favs</h2>
         {
+          this.state.favs.map(joke =>
+            <div key={joke.id}>
+              <h1>Joke: </h1>
+              <span>{joke.setup}</span>
+              <span>{joke.punchline}</span>
+            </div>
+          )
         }
-        <h2>joke</h2>
-        {this.props.jokes.map((joke, i) =>
-          <Joke
-            key={i}
-            joke={joke}
-          />
-        )}
       </div>
     )
   }
 }
 
-function mapStateToProps (state) {
-  return {
-    jokes: state
-  }
-}
-
-export default connect(mapStateToProps)(FavList)
+export default connect()(FavList)

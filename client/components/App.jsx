@@ -2,6 +2,7 @@ import React from 'react'
 
 import LoadJokes from './LoadJokes'
 import JokesList from './JokesList'
+import FavList from './FavList'
 // import WaitIndicator from './WaitIndicator'
 
 const App = (props) => (
@@ -9,6 +10,7 @@ const App = (props) => (
     {/* <FavoritesList /> */}
     <LoadJokes />
     <JokesList />
+    <FavList />
   </div>
 )
 
