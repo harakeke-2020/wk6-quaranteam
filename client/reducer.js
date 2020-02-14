@@ -1,4 +1,4 @@
-import { REQUEST_JOKES, RECEIVE_JOKES, SHOW_ERROR } from './actions/jokesaction'
+import { RECEIVE_JOKES } from './actions/jokesaction'
 
 const reducer = (state = [], action) => {
   switch (action.type) {
