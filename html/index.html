@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Ropa Sans' rel='stylesheet'>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="app"></div>
+ <script src="/bundle.js"></script>
+
+<div class="header">
+  <h1>JOKES</>
+</div>
+
+<br>
+
+<div class="body">
+<form>
+  <div class="question-text">
+  <label for="type">What type of joke would you like?</label>
+</div>
+<select class="form-control form-control-sm">
+  <option value="" disabled selected hidden>Select one</option>
+  <option value="general">General</option>
+  <option value="programming">Ten</option>
+  <option value="knock-knock">Knock-knock</option>
+</select>
+<br>
+<div class="question-text form">
+<label for="type">How many jokes ya want?</label>
+</div>
+<select class="form-control form-control-sm">
+  <option value="" disabled selected hidden>Select one</option>
+  <option value="one">One</option>
+  <option value="ten">Ten</option>
+</select>
+</form>
+<!-- Confirmbutton  -->
+<br>
+<div>
+<button type="submit" class="btn btn-primary btn-block btn-outline-info " data-toggle="button" aria-pressed="false" autocomplete="off">
+  Confirm
+</button>
+</div>
+</div>
+
+
+
+</body>
+</html>
