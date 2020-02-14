@@ -6,12 +6,12 @@ import Joke from './Joke'
 const JokesList = (props) => {
   return (
     <div>
-      {/* {props.jokes.map((joke, i) => */}
-      <Joke
-        // key={i}
-        // joke={joke}
-      />
-      {/* )} */}
+      {props.jokes.map((joke, i) =>
+        <Joke
+          key={i}
+          joke={joke}
+        />
+      )}
     </div>
   )
 }

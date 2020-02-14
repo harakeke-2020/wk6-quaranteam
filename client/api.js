@@ -8,7 +8,9 @@ export function requestJokes (object) {
   console.log('api file ', type, quantity)
   return request
     .get(`${serverUrl}${type}/${quantity}`)
-    .then(response => response.body)
+    .then(response => {
+      console.log(response)
+    })
 }
 
 // export function appendWidget (widget) {
