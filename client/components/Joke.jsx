@@ -18,12 +18,12 @@ class Joke extends React.Component {
   }
 
   addToFavs = (e, joke) => {
+    console.log('joke given to add to favs ', joke)
     e.preventDefault()
-    this.props.addFav(joke)
+    this.props.addFav({...joke})
   }
 
   render () {
-    console.log(this.state)
     console.log('joke component props, ', this.props)
     return (
       <div>

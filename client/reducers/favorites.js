@@ -1,9 +1,10 @@
-import { ADD_FAV } from '../actions/addFav'
-import { DELETE_FAV } from '../actions/deleteFav'
+import { ADD_FAV, DELETE_FAV } from '../actions/favsactions'
 
-const initialFavList = []
+const initState = {
+  initialFavList: []
+}
 
-function favList (state = initialFavList, action) {
+function favList (state = initState.initialFavList, action) {
   switch (action.type) {
     case ADD_FAV:
       // const ternary = !action.quantity ? action.quantity = 1 : action.quantity
@@ -20,7 +21,7 @@ function favList (state = initialFavList, action) {
       // if (check) {
       //   return checkedArr
       // } else {
-        return [...state, { id: action.id, genre: action.genre, setup: action.setup, punchline: action.punchline }]
+      return [...state, { id: action.id, genre: action.genre, setup: action.setup, punchline: action.punchline }]
       // }
     case DELETE_FAV:
       return state.filter(item => item.id !== action.id)
