@@ -20,6 +20,7 @@ export const receiveJokes = (jokes) => {
 }
 
 export function apiCall (object) {
+  console.log('apicall ', object)
   let { type, quantity } = object
   quantity = quantity === 'one' ? quantity = 'random' : quantity
   return (dispatch) => {
@@ -27,20 +28,6 @@ export function apiCall (object) {
       .get(`${serverUrl}${type}/${quantity}`)
       .then(response => {
         dispatch(receiveJokes(response.body))
-      })
-  }
-}
-
-export function fetchPosts (subreddit) {
-  return (dispatch) => {
-    dispatch(requestPosts())
-    return request
-      .get(`/api/v1/reddit/subreddit/${subreddit}`)
-      .then(res => {
-        dispatch(receivePosts(res.body))
-      })
-      .catch(err => {
-        dispatch(showError(err.message))
       })
   }
 }

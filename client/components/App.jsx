@@ -7,7 +7,6 @@ import FavList from './FavList'
 
 const App = (props) => (
   <div className='app'>
-    {/* <FavoritesList /> */}
     <LoadJokes />
     <JokesList />
     <FavList />

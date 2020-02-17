@@ -1,27 +1,47 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import request from 'superagent'
+import { addFav } from '../actions/favsactions'
 
-const Joke = (props) => {
-  console.log('props available to joke component, ', props)
-
-  const clickHandler = (joke) => {
-    return request
-      .post('/api/v2/')
-      .send(joke)
-      .then(() => {
-        console.log('success')
-      })
+class Joke extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      bool: false
+    }
   }
 
-  return (
-    <div>
-      <h1>Joke: </h1>
-      <span>{props.joke.setup}</span>
-      <span>{props.joke.punchline}</span>
-      {' '} <button type={'button'} onClick={() => clickHandler(props.joke)}>add to favs</button>
-    </div>
-  )
+  clickHandler = e => {
+    e.preventDefault()
+    this.setState({
+      bool: !this.state.bool
+    })
+  }
+
+  addToFavs = (e, joke) => {
+    e.preventDefault()
+    this.props.addFav(joke)
+  }
+
+  render () {
+    console.log(this.state)
+    console.log('joke component props, ', this.props)
+    return (
+      <div>
+        <h1>Joke: </h1>
+        <span>{this.props.joke.setup}</span>
+        <button onClick={this.clickHandler}>{this.state.bool ? 'hide' : 'show'} puchline</button><br></br>
+        {this.state.bool
+          ? <><span>{this.props.joke.punchline}</span><button onClick={e => this.addToFavs(e, this.props.joke)} type={'button'}>add to favs</button></>
+          : ''}
+      </div>
+    )
+  }
 }
 
-export default connect()(Joke)
+const mapDispatchToProps = dispatch => {
+  return {
+    addFav: fav => dispatch(addFav(fav))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Joke)

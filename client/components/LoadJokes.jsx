@@ -12,7 +12,6 @@ class LoadJokes extends React.Component {
   }
 
   handleClick = (e) => {
-    console.log(e.target.value)
     e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
@@ -20,7 +19,6 @@ class LoadJokes extends React.Component {
   }
 
   handleSubmit = (e) => {
-    console.log(this.state)
     e.preventDefault()
     this.props.dispatch(apiCall(this.state))
   }

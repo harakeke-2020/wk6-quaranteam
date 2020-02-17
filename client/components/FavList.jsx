@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import request from 'superagent'
 
 import Joke from './Joke'
 
@@ -14,16 +13,16 @@ class FavList extends React.Component {
     }
   }
 
-  componentDidMount () {
-    return request
-      .get('api/v2/')
-      .then(result => {
-        console.log(result.body)
-        this.setState({
-          favs: result.body
-        })
-      })
-  }
+  // componentDidMount () {
+  //   return request
+  //     .get('api/v2/')
+  //     .then(result => {
+  //       console.log(result.body)
+  //       this.setState({
+  //         favs: result.body
+  //       })
+  //     })
+  // }
 
   render () {
     return (

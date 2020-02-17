@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import Joke from './Joke'
 
-// component contains subreddits props which comes from global state
 class JokesList extends React.Component {
   render () {
     console.log(this.props)
