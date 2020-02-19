@@ -1,13 +1,11 @@
-import { RECEIVE_JOKES } from '../actions/jokesActions.js'
+import { RECEIVE_JOKES } from '../actions/jokesaction.js'
 
-const initJokesList = {
-  jokes: []
-}
+const initJokesList = []
 
-function jokes (state = initJokesList.jokes, action) {
+function jokes (state = initJokesList, action) {
   switch (action.type) {
     case RECEIVE_JOKES:
-      return action.posts
+      return action.jokes
 
     default:
       return state

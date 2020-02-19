@@ -4,42 +4,23 @@ import { connect } from 'react-redux'
 import Joke from './Joke'
 
 // component contains subreddits props which comes from global state
-class FavList extends React.Component {
-  constructor (props) {
-    super(props)
+const FavList = props => {
+  return (
+    <div>
+      <h2>Favs</h2>
+      {
+        props.favs.map(joke =>
+          (<Joke fromFavs={true} key={joke.id} joke={joke}/>)
+        )
+      }
+    </div>
+  )
+}
 
-    this.state = {
-      favs: []
-    }
-  }
-
-  // componentDidMount () {
-  //   return request
-  //     .get('api/v2/')
-  //     .then(result => {
-  //       console.log(result.body)
-  //       this.setState({
-  //         favs: result.body
-  //       })
-  //     })
-  // }
-
-  render () {
-    return (
-      <div>
-        <h2>Favs</h2>
-        {
-          this.state.favs.map(joke =>
-            <div key={joke.id}>
-              <h1>Joke: </h1>
-              <span>{joke.setup}</span>
-              <span>{joke.punchline}</span>
-            </div>
-          )
-        }
-      </div>
-    )
+function mapStateToProps (state) {
+  return {
+    favs: state.favorites
   }
 }
 
-export default connect()(FavList)
+export default connect(mapStateToProps)(FavList)

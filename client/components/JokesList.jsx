@@ -5,7 +5,6 @@ import Joke from './Joke'
 
 class JokesList extends React.Component {
   render () {
-    console.log(this.props)
     return (
       <div>
         {
@@ -24,7 +23,7 @@ class JokesList extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    jokes: state
+    jokes: state.jokes
   }
 }
 
